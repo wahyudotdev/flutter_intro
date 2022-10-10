@@ -39,7 +39,7 @@ class Item extends StatelessWidget {
 
 ```
 
-## Widget Tree
+### Widget Tree
 
 Widget merupakan hirarki kelas tertinggi di flutter, sama seperti View di android atau UIView di SwiftUI. Pada flutter, user interface di render dari widget dengan hirarki teratas (parent widget) hingga terbawah (child widget)
 
