@@ -1,7 +1,4 @@
 # Stateless dan Stateful Widget
-
-Widget merupakan hirarki kelas tertinggi di flutter, sama seperti View di android atau UIView di SwiftUI. Widget ini dibagi lagi menjadi 2 subclass utama yaitu StatelessWidget dan StatefulWidget
-
 ## Apa itu state ?
 State di flutter hanyalah sebuah local variable (properti) didalam suatu kelas. Nantinya widget akan di render ulang ketika local variable ini berubah
 

@@ -6,12 +6,12 @@ flutter doctor
 ```
 - Buka commmand line lalu ketik perintah
 ```bash
-flutter create traveloka
+flutter create training
 ```
 
 - Pindah ke folder project tersebut
 ```bash
-cd traveloka
+cd training
 ```
 
 - Buka project menggunakan VSCode
