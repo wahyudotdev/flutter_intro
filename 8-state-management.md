@@ -107,22 +107,22 @@ BLoC (Business Logic Component) pattern merupakan pattern untuk memisahkan antar
 
 Anggaplah Event itu adalah aksi yang dilakukan oleh user. Sedangkan State adalah perubahan data yang disebabkan oleh event tertentu. Untuk mengimplementasikan bloc pattern, sebenarnya kita bisa menggunakan StreamBuilder dan StreamController, namun akan lebih baik jika kita menggunakan library yang memang diperuntukkan untuk mengimplementasikan pattern tersebut, salah satunya yaitu library flutter_bloc . Perlu diketahui bahwa flutter_bloc memiliki 2 versi state management, yang pertama adalah bloc dan yang lain bernama cubit. Perbedaan keduanya hanyalah pada cara bagaimana Event ditangani, dimana pada bloc mengharuskan kita untuk membuat class Event, sedangkan pada cubit kita dapat langsung memanggil method didalam class bloc nya sehingga lebih simpel. Langsung saja mari kita coba mengimplementasikan bloc pattern menggunakan flutter_bloc.
 
-1. Install ekstensi flutter bloc di vscode / android studio
+#### 1. Install ekstensi flutter bloc di vscode / android studio
 
 ![image info](./images/bloc_extension.png)
 
-2. Tambahkan library flutter_bloc di pubspec.yaml
+#### 2. Tambahkan library flutter_bloc di pubspec.yaml
 
 ```yaml
 dependencies:
     flutter_bloc: ^8.1.1
 ```
 
-3. Buatlah kelas cubit dengan klik kanan pada folder lib > Cubit: New Cubit . Lalu namai dengan **counter**
+#### 3. Buatlah kelas cubit dengan klik kanan pada folder lib > Cubit: New Cubit . Lalu namai dengan **counter**
 
 ![image info](./images/create_cubit.png)
 
-4. Akan ada 2 file baru dengan nama counter_cubit.dart dan counter_state.dart. Lalu buka file counter_state.dart dan buatlah kelas State baru yang meng-extends dari kelas **CounterState** dengan nama **CurrentCounterState**
+### 4. Akan ada 2 file baru dengan nama counter_cubit.dart dan counter_state.dart. Lalu buka file counter_state.dart dan buatlah kelas State baru yang meng-extends dari kelas **CounterState** dengan nama **CurrentCounterState**
 
 ```dart
 // counter_state.dart
@@ -142,7 +142,7 @@ class CurrentCounterState extends CounterState {
 ```
 kelas CurrentCounterState di atas memiliki property counter yang akan digunakan untuk menampung nilai statenya.
 
-5. Lalu buka file counter_cubit.dart dan buatlah method baru dengan nama **increment**
+#### 5. Lalu buka file counter_cubit.dart dan buatlah method baru dengan nama **increment**
 
 ```dart
 
@@ -165,7 +165,7 @@ class CounterCubit extends Cubit<CounterState> {
 
 ```
 
-6. Buka file main.dart sesuaikan kode seperti dibawah 
+#### 6. Buka file main.dart sesuaikan kode seperti dibawah 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
