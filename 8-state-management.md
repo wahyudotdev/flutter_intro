@@ -122,7 +122,7 @@ dependencies:
 
 ![image info](./images/create_cubit.png)
 
-### 4. Akan ada 2 file baru dengan nama counter_cubit.dart dan counter_state.dart. Lalu buka file counter_state.dart dan buatlah kelas State baru yang meng-extends dari kelas **CounterState** dengan nama **CurrentCounterState**
+#### 4. Akan ada 2 file baru dengan nama counter_cubit.dart dan counter_state.dart. Lalu buka file counter_state.dart dan buatlah kelas State baru yang meng-extends dari kelas **CounterState** dengan nama **CurrentCounterState**
 
 ```dart
 // counter_state.dart
