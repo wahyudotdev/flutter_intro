@@ -3,13 +3,13 @@
 Diawal kita sudah mengenal mengenai cara navigasi di flutter menggunakan Navigator bawaan. Namun kekurangannya adalah sulitnya menghandle deeplink yang disertai parameter ketika kita menggunakan navigator bawaan dari flutter. Untuk mengatasi masalah tersebut, ada sebuah library yang mampu menghandle masalah umum navigasi yaitu GoRouter. 
 
 ## Navigasi dasar
-1. Buka project training dari module sebelumnya, lalu tambahkan go_router di pubspec.yaml
+#### 1. Buka project training dari module sebelumnya, lalu tambahkan go_router di pubspec.yaml
 ```yaml
 dependencies:
   go_router: ^5.0.5
 ```
 
-2. Buatlah file baru dengan nama **router.dart**
+#### 2. Buatlah file baru dengan nama **router.dart**
 
 ```dart
 // router.dart
@@ -32,7 +32,7 @@ final router = GoRouter(
 
 ```
 
-3. Modifikasi **main.dart** seperti dibawah
+#### 3. Modifikasi **main.dart** seperti dibawah
 ```dart
 // main.dart
 import 'package:flutter/material.dart';
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
 
 ```
 
-4. Lalu modifikasi juga callback onClick button di HomeScreen seperti berikut dan jalankan aplikasi Anda
+#### 4. Lalu modifikasi juga callback onClick button di HomeScreen seperti berikut dan jalankan aplikasi Anda
 ```dart
 // home_screen.dart
 import 'package:flutter/material.dart';
@@ -99,7 +99,7 @@ Dibawah ini beberapa method yang dapat anda gunakan :
 
 
 ## Navigasi dengan membawa data
-1. Tambahkan property **data** dengan tipe String pada **detail_screen.dart** menjadi seperti dibawah :
+#### 1. Tambahkan property **data** dengan tipe String pada **detail_screen.dart** menjadi seperti dibawah :
 ```dart
 // detail_screen.dart
 import 'package:flutter/material.dart';
@@ -119,7 +119,7 @@ class DetailScreen extends StatelessWidget {
 
 ```
 
-2. Buka file router.dart dan modifikasi rute detail menjadi seperti dibawah
+#### 2. Buka file router.dart dan modifikasi rute detail menjadi seperti dibawah
 ```dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -147,7 +147,7 @@ final router = GoRouter(
 
 ```
 
-3. Buka file home_screen.dart, ubahlah menjadi StatefulWidget lalu wrap ElevatedButton dengan Column dan tambahkan TextField beserta TextEditingControllernya, kurang lebih menjadi seperti dibawah ini dan jalankan aplikasi Anda
+#### 3. Buka file home_screen.dart, ubahlah menjadi StatefulWidget lalu wrap ElevatedButton dengan Column dan tambahkan TextField beserta TextEditingControllernya, kurang lebih menjadi seperti dibawah ini dan jalankan aplikasi Anda
 ```dart
 
 // home_screen.dart
