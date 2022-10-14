@@ -96,9 +96,71 @@ Sebelum masuk ke pembahasan state management, ada baiknya kalau kita memahami te
 
 ![image info](./images/widget-tree.png)
 
-Pada gambar diatas, **Icon** merupakan **child widget** dari **Column** yang merupakan **child widget** dari **Row** . Dan **Row** sendiri merupakan **child widget** dari **Container** .
+Pada gambar diatas, **Icon** merupakan **child widget** dari **Column** yang merupakan **child widget** dari **Row** . Dan **Row** sendiri merupakan **child widget** dari **Container** . BuildContext ini yang juga nantinya akan kita gunakan sebagai media untuk meng-inject instance ke dalam widget tree.
 
-## Kapan state manager diperlukan ?
 
-- Ketika ada kebutuhan sharing data antar screen
-- Ketika codebase diperkirakan akan complex, sehingga antara layer UI dan logic aplikasi perlu dipisahkan
+
+
+## BLoC Pattern
+BLoC (Business Logic Component) pattern merupakan pattern untuk memisahkan antara UI dan business logic.
+![image info](./images/bloc_architecture.png)
+
+Anggaplah Event itu adalah aksi yang dilakukan oleh user. Sedangkan State adalah perubahan data yang disebabkan oleh event tertentu. Untuk mengimplementasikan bloc pattern, sebenarnya kita bisa menggunakan StreamBuilder dan StreamController, namun akan lebih baik jika kita menggunakan library yang memang diperuntukkan untuk mengimplementasikan pattern tersebut, salah satunya yaitu library flutter_bloc . Perlu diketahui bahwa flutter_bloc memiliki 2 versi state management, yang pertama adalah bloc dan yang lain bernama cubit. Perbedaan keduanya hanyalah pada cara bagaimana Event ditangani, dimana pada bloc mengharuskan kita untuk membuat class Event, sedangkan pada cubit kita dapat langsung memanggil method didalam class bloc nya sehingga lebih simpel. Langsung saja mari kita coba mengimplementasikan bloc pattern menggunakan flutter_bloc.
+
+1. Install ekstensi flutter bloc di vscode / android studio
+
+![image info](./images/bloc_extension.png)
+
+2. Tambahkan library flutter_bloc di pubspec.yaml
+
+```yaml
+dependencies:
+    flutter_bloc: ^8.1.1
+```
+
+3. Buatlah kelas cubit dengan klik kanan pada folder lib > Cubit: New Cubit . Lalu namai dengan **counter**
+
+![image info](./images/create_cubit.png)
+
+4. Akan ada 2 file baru dengan nama counter_cubit.dart dan counter_state.dart. Lalu buka file counter_state.dart dan buatlah kelas State baru yang meng-extends dari kelas **CounterState** dengan nama **CurrentCounterState**
+
+```dart
+// counter_state.dart
+part of 'counter_cubit.dart';
+
+@immutable
+abstract class CounterState {}
+
+class CounterInitial extends CounterState {}
+
+class CurrentCounterState extends CounterState {
+  final int counter;
+
+  CurrentCounterState(this.counter);
+}
+
+```
+kelas CurrentCounterState di atas memiliki property counter yang akan digunakan untuk menampung nilai statenya.
+
+5. Lalu buka file counter_cubit.dart dan buatlah method baru dengan nama **increment**
+
+```dart
+
+// counter_cubit.dart
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+
+part 'counter_state.dart';
+
+class CounterCubit extends Cubit<CounterState> {
+  CounterCubit() : super(CounterInitial());
+
+  int counter = 0;
+
+  void increment() {
+    counter += 1;
+    emit(CurrentCounterState(counter));
+  }
+}
+
+```
